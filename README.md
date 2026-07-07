@@ -61,6 +61,10 @@ gyan-shell
 └── README.md
 ```
 
+## Preview
+
+![gyan-shell Demo](assets/screenshot.png)
+
 ## What I Learned
 
 - How a shell actually launches other programs as separate OS processes
