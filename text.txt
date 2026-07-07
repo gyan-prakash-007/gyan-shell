@@ -1,0 +1,9 @@
+__pycache__
+background.py
+gyan_builtins.py
+myoutput.txt
+pipes.py
+redirects.py
+shell.py
+testfolder
+text.txt
