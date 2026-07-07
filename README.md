@@ -22,6 +22,11 @@ I use a terminal every day but never really thought about what's actually happen
 python3 shell.py
 ```
 
+Example session:
+
+```console
+$ python3 shell.py
+
 gyan-shell> ls -la
 gyan-shell> ls | grep shell
 gyan-shell> ls > output.txt
@@ -30,6 +35,7 @@ gyan-shell> sleep 5 &
 gyan-shell> cd testfolder
 gyan-shell> gyan
 gyan-shell> exit
+```
 
 
 ## Project Structure
