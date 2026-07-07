@@ -2,13 +2,7 @@ import subprocess
 from pipes import handle_pipe
 from redirects import handle_redirect_in, handle_redirect_out
 from background import handle_background
-from gyan_builtins import handle_cd, handle_exit
-
-
-
-
-
-
+from gyan_builtins import handle_cd, handle_exit , print_gyan
 
 
 def main():
@@ -42,6 +36,10 @@ def main():
             handle_exit()
             break
 
+
+        if command.strip().lower() == "gyan":
+            print_gyan()
+            continue
         
 
         try:
@@ -55,6 +53,7 @@ def main():
         except Exception as e :
             print(f"gyan-shell: error ({type(e).__name__}):{e}")
          
+       
 
 if __name__ == "__main__":
     main()
