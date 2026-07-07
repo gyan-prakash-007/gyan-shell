@@ -63,7 +63,7 @@ gyan-shell
 
 ## Preview
 
-![gyan-shell Demo](assets/screenshot.png)
+![gyan-shell Demo](assets/Screenshot.png)
 
 ## What I Learned
 
