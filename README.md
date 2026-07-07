@@ -33,13 +33,27 @@ gyan-shell> exit
 
 
 ## Project Structure
-gyan-shell/
-├── shell.py            # main REPL loop, ties everything together
-├── gyan_builtins.py    # cd, exit
-├── pipes.py             # pipe handling logic
-├── redirects.py         # redirect in/out logic
-├── background.py        # background process handling
+
+```text
+gyan-shell
+│
+├── shell.py
+│   └── Main REPL loop that ties everything together
+│
+├── gyan_builtins.py
+│   └── Built-in commands (`cd`, `exit`, `gyan`)
+│
+├── pipes.py
+│   └── Pipe (`|`) implementation
+│
+├── redirects.py
+│   └── Input/Output redirection (`<`, `>`)
+│
+├── background.py
+│   └── Background process handling (`&`)
+│
 └── README.md
+```
 
 ## What I Learned
 
