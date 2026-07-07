@@ -40,10 +40,25 @@ def handle_redirect_in(command):
         subprocess.run(cmd_parts,stdin=f)
 
 
+def handle_background(command):
+    command = command.strip().rstrip("&").strip()
+    parts = command.split()
+
+
+    p = subprocess.Popen(parts)
+    print(f"[Background job startd] PID : {p.pid}")
+
+
 
 def main():
     while True :
+
         command = input("gyan-shell>")
+
+        if command.strip().endswith("&"):
+            handle_background(command)
+            continue 
+       
 
         if command.strip() == "":
             continue
