@@ -15,3 +15,12 @@ def print_gyan():
     print("GitHub: github.com/gyan-prakash-007")
     print("Fun fact: I also have an Instagram — come say hi! @grindwith.gp")
     print("=" * 70)
+
+command_history = []
+
+def add_to_history(command):
+    command_history.append(command)
+
+def print_history():
+    for i, cmd in enumerate(command_history, start=1):
+        print(f"{i} {cmd}")

@@ -1,8 +1,10 @@
 import subprocess
+import readline
 from pipes import handle_pipe
 from redirects import handle_redirect_in, handle_redirect_out
 from background import handle_background
-from gyan_builtins import handle_cd, handle_exit , print_gyan
+from gyan_builtins import handle_cd, handle_exit , print_gyan, add_to_history, print_history
+
 
 
 def main():
@@ -10,11 +12,17 @@ def main():
 
         command = input("gyan-shell>")
 
+        if command.strip() != "":
+            add_to_history(command)
+
+        if command.strip().lower() == "history":
+            print_history()
+            continue
+        
         if command.strip().endswith("&"):
             handle_background(command)
             continue 
        
-
         if command.strip() == "":
             continue
 
@@ -44,7 +52,7 @@ def main():
 
         try:
             if parts[0] == "cd":
-               handle_cd
+               handle_cd(parts)
 
             else:
              subprocess.run(parts)
