@@ -14,6 +14,7 @@ I use a terminal every day but never really thought about what's actually happen
 - **Redirects (`>`, `<`)** — write output to a file, or read input from a file
 - **Background processes (`&`)** — run something without blocking the shell, e.g. `sleep 10 &`
 - **Graceful error handling** — bad commands print a clean message instead of crashing the shell
+- **Command history** — press ↑/↓ to recall previous commands, or type `history` to see a numbered list of everything you've run
 - **`gyan` command** — a little personal touch, prints my info/bio when you run it
 
 ## Usage
@@ -35,6 +36,8 @@ gyan-shell> sleep 5 &
 gyan-shell> cd testfolder
 gyan-shell> gyan
 gyan-shell> exit
+gyan-shell> history
+
 ```
 
 
@@ -47,7 +50,7 @@ gyan-shell
 │   └── Main REPL loop that ties everything together
 │
 ├── gyan_builtins.py
-│   └── Built-in commands (`cd`, `exit`, `gyan`)
+│   └── Built-in commands (`cd`, `exit`,`history`,`gyan`)
 │
 ├── pipes.py
 │   └── Pipe (`|`) implementation
@@ -65,6 +68,9 @@ gyan-shell
 
 ![gyan-shell Demo](assets/Screenshot.png)
 
+
+![gyan-shell Demo](assets/history.png)
+
 ## What I Learned
 
 - How a shell actually launches other programs as separate OS processes
@@ -74,7 +80,7 @@ gyan-shell
 
 ## Future Improvements
 
-- Command history (↑/↓ to recall previous commands)
+- Command history (↑/↓ to recall previous commands)✅
 - Tab-completion
 - Job control (`jobs`, `fg`, `bg`, `kill`)
 - Combined pipes + redirects in a single command
