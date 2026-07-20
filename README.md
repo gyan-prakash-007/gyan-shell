@@ -1,31 +1,48 @@
-# gyan-shell
+gyan-shell
 
 A command-line shell built from scratch in Python — supports real command execution, pipes, redirects, background processes, and a few personal touches. Built to actually understand how a shell works under the hood, instead of just using one every day without thinking about it.
 
-## Why I built this
+Why I built this
 
-I use a terminal every day but never really thought about what's actually happening when I type a command and hit Enter. So I decided to build my own shell from scratch — implementing real process execution, pipes, and redirects myself — to understand how tools like bash and zsh actually work internally.
+I use a terminal every day but never really thought about what's actually happening when I type a command and hit Enter. So I decided to build my own shell from scratch — implementing real process execution, pipes, and redirects myself — to understand how tools like Bash and Zsh actually work internally.
 
-## Features
+Features
 
-- **Real command execution** — runs any actual program available on your system
-- **`cd` built-in** — correctly changes the shell's own working directory (a subtle OS-level detail: child processes can't change their parent's directory, so `cd` has to be handled specially)
-- **Pipes (`|`)** — chain multiple commands together, e.g. `ls | grep py`
-- **Redirects (`>`, `<`)** — write output to a file, or read input from a file
-- **Background processes (`&`)** — run something without blocking the shell, e.g. `sleep 10 &`
-- **Graceful error handling** — bad commands print a clean message instead of crashing the shell
-- **Command history** — press ↑/↓ to recall previous commands, or type `history` to see a numbered list of everything you've run
-- **`gyan` command** — a little personal touch, prints my info/bio when you run it
+- Real command execution — runs any actual program available on your system
+- "cd"** built-in** — correctly changes the shell's own working directory (a subtle OS-level detail: child processes can't change their parent's directory, so "cd" has to be handled specially)
+- Pipes ("|") — chain multiple commands together, e.g. "ls | grep py"
+- Redirects (">", "<") — write output to a file, or read input from a file
+- Background processes ("&") — run something without blocking the shell, e.g. "sleep 10 &"
+- Graceful error handling — bad commands print a clean message instead of crashing the shell
+- Command history — press ↑/↓ to recall previous commands, or type "history" to see a numbered list of everything you've run
+- "gyan"** command** — a little personal touch that prints my info/bio
 
-## Usage
+Tech Stack
 
-```bash
+- Python 3
+- "subprocess"
+- "os"
+- "shlex"
+- "readline"
+
+Platform
+
+Developed and tested on Linux/macOS.
+
+«Note: Some commands may behave differently on Windows due to differences in shell and process handling.»
+
+Installation
+
+git clone https://github.com/yourusername/gyan-shell.git
+cd gyan-shell
 python3 shell.py
-```
+
+Usage
+
+python3 shell.py
 
 Example session:
 
-```console
 $ python3 shell.py
 
 gyan-shell> ls -la
@@ -35,56 +52,61 @@ gyan-shell> sort < output.txt
 gyan-shell> sleep 5 &
 gyan-shell> cd testfolder
 gyan-shell> gyan
-gyan-shell> exit
 gyan-shell> history
+gyan-shell> exit
 
-```
+Project Structure
 
-
-## Project Structure
-
-```text
 gyan-shell
 │
 ├── shell.py
 │   └── Main REPL loop that ties everything together
 │
 ├── gyan_builtins.py
-│   └── Built-in commands (`cd`, `exit`,`history`,`gyan`)
+│   └── Built-in commands (cd, exit, history, gyan)
 │
 ├── pipes.py
-│   └── Pipe (`|`) implementation
+│   └── Pipe (|) implementation
 │
 ├── redirects.py
-│   └── Input/Output redirection (`<`, `>`)
+│   └── Input/Output redirection (<, >)
 │
 ├── background.py
-│   └── Background process handling (`&`)
+│   └── Background process handling (&)
 │
 └── README.md
-```
 
-## Preview
+Preview
 
 ![gyan-shell Demo](assets/Screenshot.png)
 
+![gyan-shell Demo](assets/history.p
 
-![gyan-shell Demo](assets/history.png)
+ng)
 
-## What I Learned
+Skills Demonstrated
 
-- How a shell actually launches other programs as separate OS processes
-- Why `cd` can't work like a normal command (child processes can't change their parent's directory — a real OS-level boundary)
-- How Unix pipes work under the hood — connecting one process's output stream directly to another's input stream
-- The difference between `subprocess.run()` (blocking) and `subprocess.Popen()` (non-blocking) — and why background processes need the latter
+- Operating Systems fundamentals
+- Process Management
+- Inter-Process Communication (IPC)
+- Command Parsing
+- Unix Shell Concepts
+- Python Systems Programming
 
-## Future Improvements
+What I Learned
 
-- Command history (↑/↓ to recall previous commands)✅
-- Tab-completion
-- Job control (`jobs`, `fg`, `bg`, `kill`)
+- How a shell launches programs as separate operating system processes
+- Why "cd" can't work like a normal command (child processes can't change their parent's working directory)
+- How Unix pipes connect one process's output stream directly to another process's input stream
+- The difference between "subprocess.run()" (blocking) and "subprocess.Popen()" (non-blocking), and why background processes require the latter
+- How built-in commands differ from external programs in a shell
+
+Future Improvements
+
+- Command history (↑/↓ to recall previous commands) ✅
+- Tab completion
+- Job control ("jobs", "fg", "bg", "kill")
 - Combined pipes + redirects in a single command
 - Proper signal handling (Ctrl+C should stop the running command, not the whole shell)
 
-
-> Built to understand how shells work—not just how to use them.
+«Built from scratch to explore how a Unix shell works under the hood.»
