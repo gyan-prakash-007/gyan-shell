@@ -3,11 +3,11 @@ import readline
 from pipes import handle_pipe
 from redirects import handle_redirect_in, handle_redirect_out
 from background import handle_background
-from gyan_builtins import handle_cd, handle_exit , print_gyan, add_to_history, print_history
-
-
+from gyan_builtins import handle_cd, handle_exit , print_gyan, add_to_history, print_history 
+from gyan_explain import handle_explain
 
 def main():
+    
     while True :
 
         command = input("gyan-shell>")
@@ -48,8 +48,11 @@ def main():
         if command.strip().lower() == "gyan":
             print_gyan()
             continue
-        
 
+        if parts[0] == "explain":
+            handle_explain(parts)
+            continue
+        
         try:
             if parts[0] == "cd":
                handle_cd(parts)

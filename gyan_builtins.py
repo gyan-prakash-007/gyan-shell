@@ -1,4 +1,5 @@
 import os 
+import glob
 
 def handle_cd(parts):
     target_dir = parts[1] if len(parts) > 1 else os.path.expanduser("~")
@@ -24,3 +25,5 @@ def add_to_history(command):
 def print_history():
     for i, cmd in enumerate(command_history, start=1):
         print(f"{i} {cmd}")
+
+
