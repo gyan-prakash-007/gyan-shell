@@ -15,6 +15,7 @@ I use a terminal every day but never really thought about what's actually happen
 - **Background processes (`&`)** — run something without blocking the shell, e.g. `sleep 10 &`
 - **Graceful error handling** — bad commands print a clean message instead of crashing the shell
 - **Command history** — press ↑/↓ to recall previous commands, or type `history` to see a numbered list of everything you've run
+- **`explain` command** — breaks down any command and its flags in plain English, e.g. `explain tar -xvzf archive.tar.gz`. A beginner-friendly alternative to reading `man` pages, backed by a growing database of common commands
 - **`gyan` command** — a little personal touch that prints my info/bio
 
 ## Tech Stack
@@ -22,7 +23,6 @@ I use a terminal every day but never really thought about what's actually happen
 - Python 3
 - `subprocess`
 - `os`
-- `shlex`
 - `readline`
 
 ## Platform
@@ -56,6 +56,7 @@ gyan-shell> ls > output.txt
 gyan-shell> sort < output.txt
 gyan-shell> sleep 5 &
 gyan-shell> cd testfolder
+gyan-shell> explain tar -xvzf archive.tar.gz
 gyan-shell> gyan
 gyan-shell> history
 gyan-shell> exit
@@ -68,6 +69,7 @@ gyan-shell/
 │
 ├── shell.py            # Main REPL loop that ties everything together
 ├── gyan_builtins.py     # Built-in commands (cd, exit, history, gyan)
+├── gyan_explain.py       # `explain` command + command/flag database
 ├── pipes.py             # Pipe (|) implementation
 ├── redirects.py         # Input/Output redirection (<, >)
 ├── background.py        # Background process handling (&)
@@ -78,6 +80,7 @@ gyan-shell/
 
 ![gyan-shell Demo](assets/Screenshot.png)
 ![gyan-shell Demo](assets/history.png)
+![explain command Demo](assets/explain.png)
 
 ## Skills Demonstrated
 
@@ -86,6 +89,7 @@ gyan-shell/
 - Inter-Process Communication (IPC)
 - Command Parsing
 - Unix Shell Concepts
+- Command Documentation / Developer Tooling
 - Python Systems Programming
 
 ## What I Learned
@@ -95,10 +99,12 @@ gyan-shell/
 - How Unix pipes connect one process's output stream directly to another process's input stream
 - The difference between `subprocess.run()` (blocking) and `subprocess.Popen()` (non-blocking), and why background processes require the latter
 - How built-in commands differ from external programs in a shell
+- How to parse combined short flags (like `-xvzf`) into individual flags programmatically
 
 ## Future Improvements
 
 - [x] Command history (↑/↓ to recall previous commands)
+- [x] `explain` command with plain-English flag breakdowns
 - [ ] Tab completion
 - [ ] Job control (`jobs`, `fg`, `bg`, `kill`)
 - [ ] Combined pipes + redirects in a single command
